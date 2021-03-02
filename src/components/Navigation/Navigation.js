@@ -1,6 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
+
 import { Link } from 'gatsby';
+import Button from '../Buttons/Button';
 
 const NavigationWrapper = styled.nav`
   position: absolute;
@@ -11,7 +13,7 @@ padding: 0 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: 'montserrat';
+  font-family: 'Roboto';
   color: #fff;
   a {
     text-decoration: none;
@@ -46,28 +48,17 @@ const NavigationListItem = styled.li`
   margin-left: 2rem;
 `;
 
-
-
 const Navigation = () => (
-    <NavigationWrapper>
-        <NavigationLogoWrapper>
-            <Logo><Link to="/">Dominika Napora<Span>Korekta i redakcja</Span></Link></Logo>
-        </NavigationLogoWrapper>
-        <NavigationList>
-            <NavigationListItem>
-                <Link to="/about">O mnie</Link>
-            </NavigationListItem>
-            <NavigationListItem>
-                <Link to="/gallery">Współpraca</Link>
-            </NavigationListItem>
-            <NavigationListItem>
-                <Link to="/contact">Kontakt</Link>
-            </NavigationListItem>
-            <NavigationListItem>
-                <Link to="/blog">Blog</Link>
-            </NavigationListItem>
-        </NavigationList>
-    </NavigationWrapper>
+  <NavigationWrapper>
+    <NavigationLogoWrapper>
+      <Logo><Link to="/">Dominika Napora<Span>Korekta i redakcja</Span></Link></Logo>
+    </NavigationLogoWrapper>
+    <NavigationList>
+      <NavigationListItem>
+        <Button ><Link to="/blog">Blog</Link></Button>
+      </NavigationListItem>
+    </NavigationList>
+  </NavigationWrapper>
 );
 
 export default Navigation;

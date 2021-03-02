@@ -1,8 +1,13 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import Image from 'gatsby-image';
-import Button from '../components/Button/Button';
+import Button from '../components/Buttons/Button';
+import SecondaryButton from '../components/Buttons/SecondaryButton';
+import AboutWrapper from '../components/About/AboutWrapper';
+import LeftImage from '../components/About/LeftImage';
+
+
 
 const ContentWrapper = styled.div`
   width: 100%;
@@ -53,6 +58,39 @@ const ImageWrapper = styled(Image)`
   }
 `;
 
+const LeftWrapper = styled.div`
+width: 40rem;
+height: 28rem;
+padding-left: 3.75rem;
+`;
+
+
+const RightWrapper = styled.div`
+width: 100%;
+text-align: left;
+padding: 2rem;
+`;
+
+const RightHeading = styled.h2`
+text-align: left;
+font-size: 2rem;
+color: #000;
+`;
+
+const RightSpan = styled.span`
+text-align: left;
+font-size: 2rem;
+color: #8cb3d2;
+`;
+
+const RightText = styled.span`
+text-align: left;
+font-size: 1.1rem;
+line-height: 1.5em;
+color: #000;
+`;
+
+
 const IndexPage = ({ data }) => (
   <>
     <ContentWrapper>
@@ -66,11 +104,23 @@ const IndexPage = ({ data }) => (
       </p>
     </ContentWrapper>
     <ImageWrapper fluid={data.file.childImageSharp.fluid} />
+    <AboutWrapper>
+      <LeftWrapper>
+        <LeftImage fixed={data.file.childImageSharp.fixed} />
+      </LeftWrapper>
+      <RightWrapper>
+        <RightHeading>O<RightSpan> MNIE</RightSpan></RightHeading>
+        <RightText>Nazywam się Dominika Napora, zajmuję się korektą i redakcją. Opowiem Ci, skąd taki pomysł. Od najmłodszych lat pasjonują mnie słowa. Pojedyncze litery, które tworzą wyrazy, następnie układane z nich zdania. Krótkie historie, długie opowieści. Wszystko, co składa się na tekst – od akapitu, po kropkę. Z tej miłości do słów było kółko poetyckie, gazeta szkolna i dorosłość, która pokrzyżowała mi plany.
+
+Jest takie powiedzenie: Co się odwlecze… to się dowlecze :) I stało się, po wyboistej (czasami), ale właściwej ścieżce zostałam korektorem. Nie napiszę Ci, że znam cały słownik ortograficzny na pamięć, ale sprawię, że Twoje teksty staną się przejrzyste i łatwe w odbiorze. </RightText>
+        <SecondaryButton>Czytaj więcej</SecondaryButton>
+      </RightWrapper>
+    </AboutWrapper>
   </>
 );
 
 export const query = graphql`
-  {
+  query {
     file(name: { eq: "hero" }) {
       childImageSharp {
         fluid(maxWidth: 1920, maxHeight: 1080, quality: 100) {
@@ -80,5 +130,7 @@ export const query = graphql`
     }
   }
 `;
+
+
 
 export default IndexPage;
