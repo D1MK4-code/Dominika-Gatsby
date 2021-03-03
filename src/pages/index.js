@@ -4,9 +4,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 import Image from 'gatsby-image';
 import Button from '../components/Buttons/Button';
 import SecondaryButton from '../components/Buttons/SecondaryButton';
-import AboutWrapper from '../components/About/AboutWrapper';
-import LeftImage from '../components/About/LeftImage';
-
+import myImage from '../assets/images/img-3.jpg';
 
 
 const ContentWrapper = styled.div`
@@ -58,12 +56,30 @@ const ImageWrapper = styled(Image)`
   }
 `;
 
+const AboutWrapper = styled.div`
+  max-width: 75rem;
+  padding: 3rem 1rem;
+  margin: 0 auto;
+  background-color: #fff;
+  display: flex;
+`;
+
+
 const LeftWrapper = styled.div`
+width: 38rem;
+height: 30rem;
+padding-left: 3.75rem;
+background-image: url(${myImage});
+background-size: cover;
+background-repeat: no-repeat;
+background-position: 50% 50%;
+`;
+
+const LeftImage = styled(Image)`
 width: 40rem;
 height: 28rem;
 padding-left: 3.75rem;
 `;
-
 
 const RightWrapper = styled.div`
 width: 100%;
